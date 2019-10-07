@@ -28,7 +28,7 @@ export function SignIn(props) {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {})
-      .catch(() => {
+      .catch(error => {
         alert(error.message);
       });
   };
@@ -100,7 +100,7 @@ export function SignUp(props) {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then(() => {})
-      .catch(() => {
+      .catch(error => {
         alert(error.message);
       });
   };
@@ -176,7 +176,7 @@ export function App(props) {
       .then(() => {
         props.history.push("/");
       })
-      .catch(() => {
+      .catch(error => {
         alert(error.message);
       });
   };
