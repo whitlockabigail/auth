@@ -10,9 +10,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Drawer from "@material-ui/core/Drawer";
 import { Link, Route } from "react-router-dom";
 import { auth } from "./firebase";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 
 export function SignIn(props) {
@@ -32,7 +30,7 @@ export function SignIn(props) {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(() => {})
-      .catch(() => {
+      .catch(error => {
         alert(error.message);
       });
   };
@@ -104,7 +102,7 @@ export function SignUp(props) {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then(() => {})
-      .catch(() => {
+      .catch(error => {
         alert(error.message);
       });
   };
@@ -180,7 +178,7 @@ export function App(props) {
       .then(() => {
         props.history.push("/");
       })
-      .catch(() => {
+      .catch(error => {
         alert(error.message);
       });
   };
